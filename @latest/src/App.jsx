@@ -27,22 +27,22 @@ const App = () => {
 
   const addOrUpdateTask = async (taskData) => {
     if (editTask) {
-      await axios.put(`http://localhost:4000/api/tasks/${editTask._id}`, taskData);
+      await axios.put(`/api/tasks/${editTask._id}`, taskData);
       setEditTask(null);
     } else {
-      await axios.post('http://localhost:4000/api/tasks', taskData);
+      await axios.post('/api/tasks', taskData);
     }
     fetchTasks();
   };
 
   const deleteTask = async (id) => {
-    await axios.delete(`http://localhost:4000/api/tasks/${id}`);
+    await axios.delete(`api/tasks/${id}`);
     fetchTasks();
   };
 
   const toggleComplete = async (id) => {
     const task = tasks.find((t) => t._id === id);
-    await axios.patch(`http://localhost:4000/api/tasks/${id}`, { completed: !task.completed });
+    await axios.patch(`/api/tasks/${id}`, { completed: !task.completed });
     fetchTasks();
   };
 

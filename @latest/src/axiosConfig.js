@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://task-mate-project.onrender.com/',
+  baseURL: 'http://localhost:4000',
   headers: {
     'Content-Type': 'application/json',
   },
